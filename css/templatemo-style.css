@@ -516,7 +516,7 @@ a#logo {
 }
 
 /*==============================================
-06. SERVICES BLOCK CSS
+06. PROJECTS BLOCK CSS
 ================================================*/
 .title-block {
   margin-bottom: 40px;
@@ -780,7 +780,7 @@ textarea.form-control {
 
 
 /*==============================================
-09. TESTIMONOALS BLOCK CSS
+09. GALLERY BLOCK CSS
 ================================================*/
 .testimonials-section .item {
   background-color: rgba(250,250,250,0.25);
@@ -794,6 +794,7 @@ textarea.form-control {
   position: relative;
   z-index: 9;
   border-radius: 10px;
+  transition: all 0.1s ease;
 }
 .testimonials-section .item h4 {
   margin-top: 40px;
@@ -802,7 +803,7 @@ textarea.form-control {
   font-weight: 700;
   margin-bottom: 0;
   font-size: 16px;
-  margin-top: 0px;
+  margin-top: 10px;
 }
 .testimonials-section .item p {
   font-size: 17px;
