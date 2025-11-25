@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Naveen Kumar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #ffffff; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Space Grotesk', sans-serif; }
+        @tailwind base; @tailwind components; @tailwind utilities;
+        
+        @layer components {
+            .nav-link { @apply font-bold text-gray-400 px-4 py-2 border border-transparent transition-all duration-200; }
+            .nav-link:hover { @apply text-lime-400 border-lime-400 bg-lime-400/10 shadow-[0_0_15px_rgba(163,230,53,0.3)]; }
+            .nav-link.active { @apply text-black bg-lime-400 border-lime-400 shadow-[4px_4px_0px_0px_#ffffff]; }
+            
+            /* Marquee */
+            .marquee-container { overflow: hidden; white-space: nowrap; position: relative; }
+            .marquee-content { display: inline-block; animation: marquee 25s linear infinite; }
+            @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+            
+            /* Glitch Button */
+            .glitch-btn {
+                @apply relative px-8 py-4 font-heading font-bold text-xl bg-lime-400 text-black border-2 border-lime-400 transition-all;
+                box-shadow: 4px 4px 0px 0px #ffffff;
+            }
+            .glitch-btn:hover {
+                @apply bg-black text-white border-white;
+                box-shadow: 6px 6px 0px 0px #a3e635;
+                transform: translate(-2px, -2px);
+            }
+        }
+    </style>
+</head>
+<body class="overflow-hidden selection:bg-lime-400 selection:text-black">
+
+    <div class="bg-lime-400 text-black border-b border-white py-2 marquee-container font-mono font-bold tracking-widest text-sm relative z-50">
+        <div class="marquee-content">
+            /// SYSTEM ONLINE /// RESEARCH ENGINEER /// SAINT GOBAIN /// IIT MADRAS /// MATERIALS SCIENCE /// AI INTEGRATION /// DATA DRIVEN /// INNOVATION /// SYSTEM ONLINE /// RESEARCH ENGINEER /// SAINT GOBAIN ///
+        </div>
+    </div>
+
+    <header class="sticky top-0 z-50 bg-black/90 backdrop-blur border-b border-zinc-800">
+        <nav class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-black tracking-tighter text-white hover:text-lime-400 transition-colors">NAVEEN_K<span class="animate-pulse text-lime-400">_</span></a>
+            <div id="desktop-nav" class="hidden md:flex gap-4">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="gallery.html" class="nav-link">Gallery</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden text-white border border-white p-2 rounded"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-black border-b border-zinc-800">
+            <a href="index.html" class="block p-4 font-mono text-lime-400 bg-zinc-900 border-t border-zinc-800">Home</a>
+            <a href="about.html" class="block p-4 font-mono text-gray-400 hover:text-white border-t border-zinc-800">About</a>
+            <a href="projects.html" class="block p-4 font-mono text-gray-400 hover:text-white border-t border-zinc-800">Projects</a>
+            <a href="gallery.html" class="block p-4 font-mono text-gray-400 hover:text-white border-t border-zinc-800">Gallery</a>
+            <a href="contact.html" class="block p-4 font-mono text-gray-400 hover:text-white border-t border-zinc-800">Contact</a>
+        </div>
+    </header>
+
+    <main class="relative h-[calc(100vh-115px)] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-40">
+                <source src="gallery/video-bg.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTTAgNDBWMGg0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjYSkiLz48L3N2Zz4=')] z-10"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10"></div>
+        </div>
+
+        <div class="relative z-20 text-center px-4 max-w-4xl">
+            <div class="inline-block border border-lime-400 bg-black/50 backdrop-blur text-lime-400 px-4 py-1 rounded-full font-mono text-sm mb-6 animate-pulse">
+                /// INITIALIZING SEQUENCE...
+            </div>
+            
+            <h1 class="text-6xl md:text-9xl font-black text-white mb-6 tracking-tighter leading-none">
+                NAVEEN<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-cyan-400">KUMAR</span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl text-gray-300 font-mono mb-12 max-w-2xl mx-auto border-l-2 border-fuchsia-500 pl-6 text-left bg-black/40 p-4 backdrop-blur-sm">
+                Research Engineer.<br>
+                Materials Science // Artificial Intelligence.
+            </p>
+            
+            <a href="projects.html" class="glitch-btn inline-block">
+                ACCESS_PROJECTS_DB
+            </a>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById("mobile-menu-btn").addEventListener("click", () => {
+            document.getElementById("mobile-menu").classList.toggle("hidden");
+        });
+    </script>
+</body>
+</html>

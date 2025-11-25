@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Naveen Kumar</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #050505; 
+            color: #ffffff;
+            background-image: radial-gradient(#1a1a1a 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        h1, h2, h3, h4, .font-heading { font-family: 'Space Grotesk', sans-serif; }
+
+        @tailwind base; @tailwind components; @tailwind utilities;
+
+        @layer components {
+            /* --- NEON NAV LINKS --- */
+            .nav-link { 
+                @apply font-bold text-gray-400 px-4 py-2 border border-transparent transition-all duration-200;
+            }
+            .nav-link:hover {
+                @apply text-lime-400 border-lime-400 bg-lime-400/10 shadow-[0_0_15px_rgba(163,230,53,0.3)];
+            }
+            .nav-link.active { 
+                @apply text-black bg-lime-400 border-lime-400 shadow-[4px_4px_0px_0px_#ffffff]; 
+            }
+
+            /* --- CYBER CARD --- */
+            .cyber-card {
+                @apply bg-zinc-900 border border-zinc-700 p-6 relative z-10 transition-all duration-200;
+            }
+            .cyber-card:hover {
+                @apply border-white -translate-y-1 -translate-x-1;
+                box-shadow: 6px 6px 0px 0px #a3e635;
+            }
+            
+            /* Card Variations */
+            .card-pink:hover { box-shadow: 6px 6px 0px 0px #e879f9; } 
+            .card-cyan:hover { box-shadow: 6px 6px 0px 0px #22d3ee; } 
+            .card-white:hover { box-shadow: 6px 6px 0px 0px #ffffff; } 
+
+            /* --- TECH BADGE --- */
+            .tech-badge {
+                @apply font-mono text-xs font-bold px-4 py-3 bg-zinc-900 border border-zinc-700 text-gray-300 cursor-pointer transition-all duration-200 select-none;
+            }
+            .tech-badge:hover {
+                @apply bg-white text-black border-white;
+                box-shadow: 4px 4px 0px 0px #e879f9; 
+                transform: translate(-2px, -2px);
+            }
+
+            /* --- SCROLLING MARQUEE --- */
+            .marquee-container {
+                overflow: hidden;
+                white-space: nowrap;
+                position: relative;
+            }
+            .marquee-content {
+                display: inline-block;
+                animation: marquee 25s linear infinite;
+            }
+            @keyframes marquee {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden selection:bg-lime-400 selection:text-black">
+
+    <div class="bg-lime-400 text-black border-b border-white py-2 marquee-container font-mono font-bold tracking-widest text-sm">
+        <div class="marquee-content">
+            /// SYSTEM ONLINE /// RESEARCH ENGINEER /// SAINT GOBAIN /// IIT MADRAS /// TU DARMSTADT /// MATERIALS SCIENCE /// AI INTEGRATION /// DATA DRIVEN /// INNOVATION /// SYSTEM ONLINE /// RESEARCH ENGINEER /// SAINT GOBAIN ///
+        </div>
+    </div>
+
+    <header class="sticky top-0 z-50 bg-black/90 backdrop-blur border-b border-zinc-800">
+        <nav class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-black tracking-tighter text-white hover:text-lime-400 transition-colors">
+                NAVEEN_K<span class="animate-pulse text-lime-400">_</span>
+            </a>
+            
+            <div id="desktop-nav" class="hidden md:flex gap-4">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link active">About</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="gallery.html" class="nav-link">Gallery</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            
+            <button id="mobile-menu-btn" class="md:hidden text-white border border-white p-2 rounded hover:bg-white hover:text-black transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </nav>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-black border-b border-zinc-800">
+            <a href="index.html" class="block p-4 font-mono text-gray-400 hover:text-white border-t border-zinc-800">Home</a>
+            <a href="about.html" class="block p-4 font-mono text-lime-400 bg-zinc-900 border-t border-zinc-800">About</a>
+            <a href="projects.html" class="block p-4 font-mono text-gray-400 hover:text-white border-t border-zinc-800">Projects</a>
+            <a href="gallery.html" class="block p-4 font-mono text-gray-400 hover:text-white border-t border-zinc-800">Gallery</a>
+            <a href="contact.html" class="block p-4 font-mono text-gray-400 hover:text-white border-t border-zinc-800">Contact</a>
+        </div>
+    </header>
+
+    <main class="py-16 px-4 relative z-10">
+        
+        <section class="max-w-6xl mx-auto mb-24">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+                
+                <div class="md:col-span-4 flex justify-center order-2 md:order-1 sticky top-24">
+                    <div class="relative group w-72 h-72">
+                        <div class="absolute inset-0 bg-fuchsia-500 border-2 border-white mix-blend-lighten transform translate-x-2 translate-y-2 transition-transform group-hover:translate-x-4 group-hover:translate-y-4"></div>
+                        <div class="absolute inset-0 bg-cyan-500 border-2 border-white mix-blend-lighten transform -translate-x-2 -translate-y-2 transition-transform group-hover:-translate-x-4 group-hover:-translate-y-4"></div>
+                        <div class="absolute inset-0 bg-zinc-900 border-2 border-white overflow-hidden">
+                            <img src="naveen.jpg" alt="Naveen" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-8 order-1 md:order-2">
+                    
+                    <div class="inline-flex items-center gap-2 border border-lime-400 text-lime-400 px-3 py-1 rounded-full text-xs font-mono mb-6 animate-pulse">
+                        <span class="w-2 h-2 bg-lime-400 rounded-full"></span> Research Engineer @ Saint Gobain
+                    </div>
+                    
+                    <h1 class="text-5xl md:text-7xl font-black mb-6 leading-none text-white">
+                        ENGINEERING <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-cyan-400">THE FUTURE.</span>
+                    </h1>
+                    
+                    <p class="text-xl text-gray-400 mb-12 max-w-2xl border-l-2 border-fuchsia-500 pl-6">
+                        Bridging the gap between material science and artificial intelligence. Building sustainable materials with data-driven intelligence.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        
+                        <div>
+                            <h3 class="font-mono text-lime-400 text-lg border-b border-zinc-800 pb-2 mb-6 flex items-center gap-2">
+                                <span class="text-xl">///</span> EXPERIENCE
+                            </h3>
+                            
+                            <div class="space-y-8 border-l border-zinc-800 ml-2 pl-6">
+                                <div class="relative group">
+                                    <div class="absolute -left-[29px] top-1 w-3 h-3 bg-zinc-900 border border-lime-400 rounded-full group-hover:bg-lime-400 transition-colors"></div>
+                                    <h4 class="text-xl font-bold text-white group-hover:text-lime-400 transition-colors">Research Engineer</h4>
+                                    <p class="text-sm text-gray-300 font-medium">Saint Gobain Research India</p>
+                                    <div class="flex items-center gap-2 mt-2">
+                                        <span class="text-xs font-mono text-zinc-500">Dec 2024 - Present</span>
+                                        <span class="text-[10px] font-bold bg-lime-400 text-black px-2 py-0.5 rounded">CURRENT</span>
+                                    </div>
+                                </div>
+
+                                <div class="relative group">
+                                    <div class="absolute -left-[29px] top-1 w-3 h-3 bg-zinc-900 border border-cyan-400 rounded-full group-hover:bg-cyan-400 transition-colors"></div>
+                                    <h4 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">DAAD Fellow</h4>
+                                    <p class="text-sm text-gray-300 font-medium">TU Darmstadt, Germany</p>
+                                    <div class="flex items-center gap-2 mt-2">
+                                        <span class="text-xs font-mono text-zinc-500">Sep 2023 - Mar 2024</span>
+                                        <span class="text-[10px] font-bold border border-zinc-600 text-zinc-400 px-2 py-0.5 rounded">ALUMNI</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="font-mono text-fuchsia-400 text-lg border-b border-zinc-800 pb-2 mb-6 flex items-center gap-2">
+                                <span class="text-xl">///</span> EDUCATION
+                            </h3>
+
+                            <div class="space-y-8 border-l border-zinc-800 ml-2 pl-6">
+                                <div class="relative group">
+                                    <div class="absolute -left-[29px] top-1 w-3 h-3 bg-zinc-900 border border-fuchsia-400 rounded-full group-hover:bg-fuchsia-400 transition-colors"></div>
+                                    <h4 class="text-xl font-bold text-white group-hover:text-fuchsia-400 transition-colors">M.Tech (MME)</h4>
+                                    <p class="text-sm text-gray-300 font-medium">IIT Madras</p>
+                                    <span class="text-xs font-mono text-zinc-500 mt-1 block">Graduated 2024</span>
+                                </div>
+
+                                <div class="relative group">
+                                    <div class="absolute -left-[29px] top-1 w-3 h-3 bg-zinc-900 border border-gray-400 rounded-full group-hover:bg-white transition-colors"></div>
+                                    <h4 class="text-xl font-bold text-white group-hover:text-gray-300 transition-colors">B.Tech (MME)</h4>
+                                    <p class="text-sm text-gray-300 font-medium">RGUKT Nuzvid</p>
+                                    <span class="text-xs font-mono text-zinc-500 mt-1 block">Graduated 2021</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    </div>
+            </div>
+        </section>
+
+        <section class="max-w-6xl mx-auto mb-24">
+            <div class="flex items-center gap-4 mb-10">
+                <h2 class="text-3xl font-black text-white uppercase tracking-tighter bg-zinc-900 border border-zinc-700 px-6 py-2 transform -skew-x-12">
+                    <span class="transform skew-x-12 inline-block text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-cyan-400">Tech_Stack</span>
+                </h2>
+                <div class="h-px bg-zinc-800 flex-grow"></div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <div class="tech-badge">PHYSICAL_METALLURGY</div>
+                <div class="tech-badge">MACHINE_LEARNING</div>
+                <div class="tech-badge">MATERIAL CHARACTERIZATION</div>
+                <div class="tech-badge">DATA_ANALYSIS</div>
+                <div class="tech-badge">MECHANICAL METALLURGY</div>
+                <div class="tech-badge">ATOM PROBE TOMOGRAPHY</div>
+                <div class="tech-badge">HIGH_ENTROPY_ALLOYS</div>
+                <div class="tech-badge">SUSTAINABILITY</div>
+                <div class="tech-badge">MATERIAL INFORMATICS</div>
+                <div class="tech-badge text-lime-400 border-lime-400/50">PYTHON</div>
+            </div>
+        </section>
+
+        <section class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-black text-white text-center mb-12 tracking-widest uppercase">
+                Hall <span class="text-zinc-600">of</span> Fame
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="cyber-card card-pink group text-center">
+                    <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🏆</div>
+                    <h3 class="text-xl font-bold text-white mb-2 font-heading">GATE RANKER</h3>
+                    <div class="w-full h-px bg-zinc-700 my-3 group-hover:bg-white"></div>
+                    <p class="font-mono text-sm text-gray-400 group-hover:text-fuchsia-400">2021 & 2022</p>
+                </div>
+
+                <div class="cyber-card card-cyan group text-center">
+                    <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🌍</div>
+                    <h3 class="text-xl font-bold text-white mb-2 font-heading">DAAD FELLOW</h3>
+                    <div class="w-full h-px bg-zinc-700 my-3 group-hover:bg-white"></div>
+                    <p class="font-mono text-sm text-gray-400 group-hover:text-cyan-400">2023-2024</p>
+                </div>
+
+                <div class="cyber-card card-white group text-center">
+                    <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">⚡</div>
+                    <h3 class="text-xl font-bold text-white mb-2 font-heading">METAQUIZ</h3>
+                    <div class="w-full h-px bg-zinc-700 my-3 group-hover:bg-white"></div>
+                    <p class="font-mono text-sm text-gray-400 group-hover:text-white">Winner 2019</p>
+                </div>
+
+                <div class="cyber-card card-pink group text-center">
+                    <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">👔</div>
+                    <h3 class="text-xl font-bold text-white mb-2 font-heading">Vice president (SDCAC)</h3>
+                    <div class="w-full h-px bg-zinc-700 my-3 group-hover:bg-white"></div>
+                    <p class="font-mono text-sm text-gray-400 group-hover:text-fuchsia-400">2019-2020</p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="mt-20 border-t border-zinc-800 bg-black py-12 text-center">
+        <p class="font-heading text-2xl font-bold text-white mb-2">NAVEEN KUMAR</p>
+        <p class="font-mono text-xs text-gray-500">© 2025 // copyright</p>
+    </footer>
+
+    <script>
+        document.getElementById("mobile-menu-btn").addEventListener("click", () => {
+            const menu = document.getElementById("mobile-menu");
+            menu.classList.toggle("hidden");
+        });
+    </script>
+</body>
+</html>

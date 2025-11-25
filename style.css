@@ -1,0 +1,61 @@
+/* Import Tailwind's base styles, components, and utilities */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Define custom classes using @apply */
+@layer components {
+    .nav-link {
+        @apply text-gray-600 hover:text-blue-500 transition duration-300 font-medium px-2 py-1;
+    }
+
+    .mobile-nav-link {
+        @apply block py-3 px-4 text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition duration-300;
+    }
+
+    .section-heading-gradient {
+        @apply text-4xl font-bold text-center mb-16 bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent;
+    }
+
+    .skill-bar-container {
+        @apply mb-6;
+    }
+
+    .soft-skill-card {
+        @apply bg-blue-50 rounded-xl p-6 flex flex-col items-center justify-center text-center shadow-md transition duration-300 hover:shadow-lg hover:-translate-y-1;
+    }
+
+    .achievement-card {
+        @apply bg-white p-6 rounded-lg shadow-lg text-center transform transition duration-300 hover:shadow-2xl hover:-translate-y-1;
+    }
+
+    .gallery-card {
+        @apply bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:shadow-2xl hover:scale-105;
+    }
+
+    .contact-input {
+        @apply w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-gray-800 transition duration-300;
+    }
+
+    .social-icon {
+        @apply text-white bg-white/20 p-3 rounded-full hover:bg-white/30 transition duration-300;
+    }
+}
+
+/* Custom Animation */
+@layer utilities {
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fadeInDown {
+        animation: fadeInDown 1s ease-out;
+    }
+}
