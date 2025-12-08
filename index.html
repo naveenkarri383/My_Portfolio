@@ -4,98 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Naveen Kumar</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232dd4bf' stroke-width='2'><path d='M12 2l-9.5 5.5v11l9.5 5.5 9.5-5.5v-11z' /><circle cx='12' cy='12' r='3' /></svg>" type="image/svg+xml">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Sora:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #ffffff; }
-        h1, h2, h3, h4, .font-heading { font-family: 'Space Grotesk', sans-serif; }
-        @tailwind base; @tailwind components; @tailwind utilities;
+        :root { --bg-dark: #0f1115; --accent: #2dd4bf; --text-primary: #f8fafc; }
+        body { font-family: 'DM Sans', sans-serif; background-color: var(--bg-dark); color: var(--text-primary); overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Sora', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        #hex-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f1115 100%); }
         
-        @layer components {
-            .nav-link { @apply font-bold text-gray-400 px-4 py-2 border border-transparent transition-all duration-200; }
-            .nav-link:hover { @apply text-lime-400 border-lime-400 bg-lime-400/10 shadow-[0_0_15px_rgba(163,230,53,0.3)]; }
-            .nav-link.active { @apply text-black bg-lime-400 border-lime-400 shadow-[4px_4px_0px_0px_#ffffff]; }
-            
-            /* Marquee */
-            .marquee-container { overflow: hidden; white-space: nowrap; position: relative; }
-            .marquee-content { display: inline-block; animation: marquee 25s linear infinite; }
-            @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-            
-            /* Glitch Button */
-            .glitch-btn {
-                @apply relative px-8 py-4 font-heading font-bold text-xl bg-lime-400 text-black border-2 border-lime-400 transition-all;
-                box-shadow: 4px 4px 0px 0px #ffffff;
-            }
-            .glitch-btn:hover {
-                @apply bg-black text-white border-white;
-                box-shadow: 6px 6px 0px 0px #a3e635;
-                transform: translate(-2px, -2px);
-            }
+        .btn-cv {
+            border: 1px solid rgba(255,255,255,0.2); padding: 0.5rem 1.5rem; border-radius: 4px; 
+            transition: all 0.3s ease; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #fff;
         }
+        .btn-cv:hover { border-color: var(--accent); color: var(--accent); background: rgba(45, 212, 191, 0.1); }
+
+        .btn-primary {
+            background: var(--accent); color: #000; padding: 1rem 2.5rem; font-family: 'JetBrains Mono', monospace; font-weight: 700;
+            border-radius: 4px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: inline-flex; align-items: center; gap: 0.5rem;
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 20px rgba(45, 212, 191, 0.4); }
+        .glass-panel { background: rgba(22, 27, 34, 0.4); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        
+        /* Social Icon Hover Animation */
+        .social-link svg { transition: all 0.3s ease; }
+        .social-link:hover svg { transform: scale(1.1); stroke: var(--accent); }
     </style>
 </head>
-<body class="overflow-hidden selection:bg-lime-400 selection:text-black">
+<body class="selection:bg-teal-500 selection:text-black">
+    <canvas id="hex-canvas"></canvas>
 
-    <div class="bg-lime-400 text-black border-b border-white py-2 marquee-container font-mono font-bold tracking-widest text-sm relative z-50">
-        <div class="marquee-content">
-            /// SYSTEM ONLINE /// RESEARCH ENGINEER /// SAINT GOBAIN /// IIT MADRAS /// MATERIALS SCIENCE /// AI INTEGRATION /// DATA DRIVEN /// INNOVATION /// SYSTEM ONLINE /// RESEARCH ENGINEER /// SAINT GOBAIN ///
+    <nav class="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="2"><path d="M12 2l-9.5 5.5v11l9.5 5.5 9.5-5.5v-11z" /><circle cx="12" cy="12" r="3" /></svg>
+                <span class="font-bold text-xl tracking-tight text-white">NAVEEN<span class="font-light text-slate-400">KUMAR</span></span>
+            </div>
+            <div class="hidden md:flex gap-8 text-sm font-medium text-slate-400">
+                <a href="index.html" class="text-teal-400">HOME</a>
+                <a href="templates/about.html" class="hover:text-teal-400 transition-colors">ABOUT</a>
+                <a href="templates/projects.html" class="hover:text-teal-400 transition-colors">PROJECTS</a>
+                <a href="templates/gallery.html" class="hover:text-teal-400 transition-colors">GALLERY</a>
+                <a href="templates/contact.html" class="hover:text-teal-400 transition-colors">CONTACT</a>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden text-white"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+            <a href="https://drive.google.com/file/d/15r-M480O8t7j1Tcv4Nj4yOCjDcGgY1-G/view?usp=drive_link" class="hidden md:block btn-cv">DOWNLOAD CV</a>
         </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800">
+            <a href="index.html" class="block p-4 font-mono text-teal-400 bg-slate-800 border-t border-slate-800">HOME</a>
+            <a href="templates/about.html" class="block p-4 font-mono text-slate-400 hover:text-teal-400 border-t border-slate-800">ABOUT</a>
+            <a href="templates/projects.html" class="block p-4 font-mono text-slate-400 hover:text-teal-400 border-t border-slate-800">PROJECTS</a>
+            <a href="templates/gallery.html" class="block p-4 font-mono text-slate-400 hover:text-teal-400 border-t border-slate-800">GALLERY</a>
+            <a href="templates/contact.html" class="block p-4 font-mono text-slate-400 hover:text-teal-400 border-t border-slate-800">CONTACT</a>
+        </div>
+    </nav>
+
+    <div class="fixed right-6 top-1/2 -translate-y-1/2 hidden md:flex flex-col gap-8 z-40">
+        <a href="https://www.linkedin.com/in/naveen-kumar-karri-/" target="_blank" class="social-link text-slate-500 hover:text-teal-400 hover:-translate-x-1 transition-all duration-300" title="LinkedIn">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a>
+        <a href="https://github.com/naveenkarri383" target="_blank" class="social-link text-slate-500 hover:text-teal-400 hover:-translate-x-1 transition-all duration-300" title="GitHub">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/naveen_karri_/" target="_blank" class="social-link text-slate-500 hover:text-teal-400 hover:-translate-x-1 transition-all duration-300" title="Instagram">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://www.researchgate.net/profile/Naveen-Kumar-Karri-2?ev=hdr_xprf" target="_blank" class="social-link text-slate-500 hover:text-teal-400 hover:-translate-x-1 transition-all duration-300" title="ResearchGate">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M0 32v448h448V32H0zm262.2 334.4l-65.8-65.8c-2.6-2.6-4.3-6.2-4.3-9.9v-88.2c0-3.7 1.7-7.3 4.3-9.9l65.8-65.8c2.6-2.6 6.2-4.3 9.9-4.3h88.2c3.7 0 7.3 1.7 9.9 4.3l65.8 65.8c2.6 2.6 4.3 6.2 4.3 9.9v88.2c0 3.7-1.7 7.3-4.3 9.9l-65.8 65.8c-2.6 2.6-6.2 4.3-9.9 4.3h-88.2c-3.7 0-7.3-1.7-9.9-4.3zm-176.6-4.3c-3.7 0-7.3-1.7-9.9-4.3l-65.8-65.8c-2.6-2.6-4.3-6.2-4.3-9.9v-88.2c0-3.7 1.7-7.3 4.3-9.9l65.8-65.8c2.6-2.6 6.2-4.3 9.9-4.3h88.2c3.7 0 7.3 1.7 9.9 4.3l65.8 65.8c2.6 2.6 4.3 6.2 4.3 9.9v88.2c0 3.7-1.7 7.3-4.3 9.9l-65.8 65.8c-2.6 2.6-6.2 4.3-9.9 4.3h-88.2zm352.4-88.2c0 3.7-1.7 7.3-4.3 9.9l-65.8 65.8c-2.6 2.6-6.2 4.3-9.9 4.3h-88.2c-3.7 0-7.3-1.7-9.9-4.3l-65.8-65.8c-2.6-2.6-4.3-6.2-4.3-9.9v-88.2c0-3.7 1.7-7.3 4.3-9.9l65.8-65.8c2.6-2.6 6.2-4.3 9.9-4.3h88.2c3.7 0 7.3 1.7 9.9 4.3l65.8 65.8c2.6 2.6 4.3 6.2 4.3 9.9v88.2z"/></svg>
+        </a>
+        <div class="h-24 w-[1px] bg-gradient-to-b from-slate-700 to-transparent mx-auto"></div>
     </div>
 
-    <header class="sticky top-0 z-50 bg-black/90 backdrop-blur border-b border-zinc-800">
-        <nav class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-black tracking-tighter text-white hover:text-lime-400 transition-colors">NAVEEN_K<span class="animate-pulse text-lime-400">_</span></a>
-            <div id="desktop-nav" class="hidden md:flex gap-4">
-                <a href="index.html" class="nav-link active">Home</a>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="projects.html" class="nav-link">Projects</a>
-                <a href="gallery.html" class="nav-link">Gallery</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-            </div>
-            <button id="mobile-menu-btn" class="md:hidden text-white border border-white p-2 rounded"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
-        </nav>
-        <div id="mobile-menu" class="hidden md:hidden bg-black border-b border-zinc-800">
-            <a href="index.html" class="block p-4 font-mono text-lime-400 bg-zinc-900 border-t border-zinc-800">Home</a>
-            <a href="about.html" class="block p-4 font-mono text-gray-400 hover:text-white border-t border-zinc-800">About</a>
-            <a href="projects.html" class="block p-4 font-mono text-gray-400 hover:text-white border-t border-zinc-800">Projects</a>
-            <a href="gallery.html" class="block p-4 font-mono text-gray-400 hover:text-white border-t border-zinc-800">Gallery</a>
-            <a href="contact.html" class="block p-4 font-mono text-gray-400 hover:text-white border-t border-zinc-800">Contact</a>
-        </div>
-    </header>
-
-    <main class="relative h-[calc(100vh-115px)] flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-40">
-                <source src="gallery/video-bg.mp4" type="video/mp4">
-            </video>
-            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTTAgNDBWMGg0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjYSkiLz48L3N2Zz4=')] z-10"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10"></div>
-        </div>
-
-        <div class="relative z-20 text-center px-4 max-w-4xl">
-            <div class="inline-block border border-lime-400 bg-black/50 backdrop-blur text-lime-400 px-4 py-1 rounded-full font-mono text-sm mb-6 animate-pulse">
-                /// INITIALIZING SEQUENCE...
+    <main class="relative min-h-screen flex items-center justify-center px-6 pt-20">
+        <div class="relative z-10 max-w-5xl w-full text-center">
+            
+            <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-panel mb-8 animate-fade-in-up">
+                <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span></span>
+                <span class="text-xs font-mono text-teal-300 tracking-widest">SYSTEM ONLINE // RESEARCH ENGINEER</span>
             </div>
             
-            <h1 class="text-6xl md:text-9xl font-black text-white mb-6 tracking-tighter leading-none">
-                NAVEEN<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-cyan-400">KUMAR</span>
-            </h1>
+            <h1 class="text-6xl md:text-9xl font-bold text-white mb-6 tracking-tighter leading-[0.9]">NAVEEN<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-500">KUMAR</span></h1>
             
-            <p class="text-xl md:text-2xl text-gray-300 font-mono mb-12 max-w-2xl mx-auto border-l-2 border-fuchsia-500 pl-6 text-left bg-black/40 p-4 backdrop-blur-sm">
-                Research Engineer.<br>
-                Materials Science // Artificial Intelligence.
-            </p>
+            <div class="max-w-2xl mx-auto mb-12 relative">
+                <div class="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-teal-500 to-transparent"></div>
+                <p class="text-lg md:text-xl text-slate-400 font-light text-left pl-6 leading-relaxed">Bridging the gap between <strong class="text-white">Material science</strong> and <strong class="text-white">Artificial Intelligence</strong>.<br>Designing the sustainable materials of tomorrow through data-driven discovery.</p>
+            </div>
             
-            <a href="projects.html" class="glitch-btn inline-block">
-                ACCESS_PROJECTS_DB
-            </a>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                <a href="templates/projects.html" class="btn-primary">EXPLORE PROJECTS <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
+                <a href="templates/about.html" class="text-slate-400 hover:text-white font-mono text-sm border-b border-slate-700 hover:border-teal-400 transition-colors pb-1">VIEW RESEARCH PROFILE</a>
+            </div>
         </div>
     </main>
 
     <script>
-        document.getElementById("mobile-menu-btn").addEventListener("click", () => {
-            document.getElementById("mobile-menu").classList.toggle("hidden");
-        });
+        document.getElementById("mobile-menu-btn").addEventListener("click", () => { document.getElementById("mobile-menu").classList.toggle("hidden"); });
+        const canvas = document.getElementById('hex-canvas'); const ctx = canvas.getContext('2d');
+        let width, height, mouse = { x: null, y: null };
+        window.addEventListener('mousemove', e => { mouse.x = e.x; mouse.y = e.y; });
+        function resize() { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; }
+        window.addEventListener('resize', resize); resize();
+        function drawHexagon(x, y, opacity) { ctx.beginPath(); for (let i=0; i<6; i++) { const angle = 2*Math.PI/6*i; ctx[i===0?'moveTo':'lineTo'](x+40*Math.cos(angle), y+40*Math.sin(angle)); } ctx.closePath(); ctx.strokeStyle = `rgba(45, 212, 191, ${opacity})`; ctx.stroke(); }
+        function animate() { ctx.clearRect(0,0,width,height); const horiz = Math.sqrt(3)*40; const vert = 80*0.75;
+            for (let r=0; r<Math.ceil(height/vert)+2; r++) for (let c=0; c<Math.ceil(width/horiz)+2; c++) {
+                let dist = mouse.x ? Math.hypot((c*horiz + (r%2?0:horiz/2) - 50) - mouse.x, (r*vert - 50) - mouse.y) : 9999;
+                drawHexagon(c*horiz + (r%2?0:horiz/2) - 50, r*vert - 50, dist<300 ? 0.04+(1-dist/300)*0.4 : 0.04);
+            } requestAnimationFrame(animate);
+        } animate();
     </script>
 </body>
 </html>

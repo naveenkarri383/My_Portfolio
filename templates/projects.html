@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Naveen Kumar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Sora:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-dark: #0f1115; --accent: #2dd4bf; --text-primary: #f8fafc; }
+        body { font-family: 'DM Sans', sans-serif; background-color: var(--bg-dark); color: var(--text-primary); overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Sora', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        #hex-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f1115 100%); }
+        .structure-card { background: rgba(22, 27, 34, 0.6); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.3s; position: relative; overflow: hidden; cursor: pointer; display: block; }
+        .structure-card:hover { transform: translateY(-5px); }
+        .section-heading { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.5rem; }
+        .section-heading::after { content: ''; flex-grow: 1; height: 1px; background: linear-gradient(to right, var(--accent), transparent); opacity: 0.3; }
+        .btn-cv { border: 1px solid rgba(255,255,255,0.2); padding: 0.5rem 1.5rem; border-radius: 4px; transition: all 0.3s ease; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #fff; }
+        .btn-cv:hover { border-color: var(--accent); color: var(--accent); background: rgba(45, 212, 191, 0.1); }
+    </style>
+</head>
+<body class="selection:bg-teal-500 selection:text-black">
+    <canvas id="hex-canvas"></canvas>
+    <nav class="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-3"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="2"><path d="M12 2l-9.5 5.5v11l9.5 5.5 9.5-5.5v-11z" /><circle cx="12" cy="12" r="3" /></svg><span class="font-bold text-xl tracking-tight text-white">NAVEEN<span class="font-light text-slate-400">KUMAR</span></span></div>
+            <div class="hidden md:flex gap-8 text-sm font-medium text-slate-400"><a href="../index.html" class="hover:text-teal-400">HOME</a><a href="about.html" class="hover:text-teal-400">ABOUT</a><a href="projects.html" class="text-teal-400">PROJECTS</a><a href="gallery.html" class="hover:text-teal-400">GALLERY</a><a href="contact.html" class="hover:text-teal-400">CONTACT</a></div>
+            <button id="mobile-menu-btn" class="md:hidden text-white"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+            <a href="https://drive.google.com/file/d/15r-M480O8t7j1Tcv4Nj4yOCjDcGgY1-G/view?usp=drive_link" class="hidden md:block btn-cv">DOWNLOAD CV</a>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800">
+            <a href="../index.html" class="block p-4 font-mono text-slate-400 hover:text-teal-400 border-t border-slate-800">HOME</a>
+            <a href="about.html" class="block p-4 font-mono text-slate-400 hover:text-teal-400 border-t border-slate-800">ABOUT</a>
+            <a href="projects.html" class="block p-4 font-mono text-teal-400 bg-slate-800 border-t border-slate-800">PROJECTS</a>
+            <a href="gallery.html" class="block p-4 font-mono text-slate-400 hover:text-teal-400 border-t border-slate-800">GALLERY</a>
+            <a href="contact.html" class="block p-4 font-mono text-slate-400 hover:text-teal-400 border-t border-slate-800">CONTACT</a>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 pt-32 pb-20">
+        <section class="mb-32">
+            <div class="mb-12"><h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Innovation Logs</h1><p class="text-slate-400 max-w-xl text-lg">Exploring advanced materials through alloy design, characterization, and machine learning.</p></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="structure-card rounded-xl group hover:border-cyan-400 hover:shadow-[0_0_25px_rgba(34,211,238,0.15)] overflow-hidden">
+                    <div class="h-48 overflow-hidden relative"><div class="absolute inset-0 bg-cyan-900/20 mix-blend-overlay z-10 group-hover:bg-transparent transition-all"></div><img src="../projects/item-11.jpg" alt="TRIP" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-110"></div>
+                    <div class="p-6"><div class="flex justify-between items-start mb-4"><h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">TRIP HEAs</h3><span class="text-[10px] font-mono border border-slate-700 text-slate-400 px-2 py-1 rounded">MAT_SCI</span></div><p class="text-sm text-slate-400 mb-6 leading-relaxed">Exceptional strength, ductility, and corrosion resistance for advanced structural applications.</p><a href="#" class="inline-flex items-center gap-2 text-xs font-bold font-mono text-slate-500 group-hover:text-cyan-400 transition-colors">VIEW DATA <span>→</span></a></div>
+                </div>
+                <div class="structure-card rounded-xl group hover:border-violet-400 hover:shadow-[0_0_25px_rgba(167,139,250,0.15)] overflow-hidden">
+                    <div class="h-48 overflow-hidden relative"><div class="absolute inset-0 bg-violet-900/20 mix-blend-overlay z-10 group-hover:bg-transparent transition-all"></div><img src="../projects/item-22.jpg" alt="Titanium" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-110"></div>
+                    <div class="p-6"><div class="flex justify-between items-start mb-4"><h3 class="text-xl font-bold text-white group-hover:text-violet-400 transition-colors">Titanium Aluminides</h3><span class="text-[10px] font-mono border border-slate-700 text-slate-400 px-2 py-1 rounded">AEROSPACE</span></div><p class="text-sm text-slate-400 mb-6 leading-relaxed">High temperature strength and low density, ideal for aerospace and industrial applications.</p><a href="#" class="inline-flex items-center gap-2 text-xs font-bold font-mono text-slate-500 group-hover:text-violet-400 transition-colors">VIEW DEMO <span>→</span></a></div>
+                </div>
+                <div class="structure-card rounded-xl group hover:border-amber-400 hover:shadow-[0_0_25px_rgba(251,191,36,0.15)] overflow-hidden">
+                    <div class="h-48 overflow-hidden relative"><div class="absolute inset-0 bg-amber-900/20 mix-blend-overlay z-10 group-hover:bg-transparent transition-all"></div><img src="../projects/item-33.jpg" alt="ML" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-110"></div>
+                    <div class="p-6"><div class="flex justify-between items-start mb-4"><h3 class="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">ML for Materials</h3><span class="text-[10px] font-mono border border-slate-700 text-slate-400 px-2 py-1 rounded">AI / ML</span></div><p class="text-sm text-slate-400 mb-6 leading-relaxed">Accelerating material discovery and property optimization using data-driven insights.</p><a href="#" class="inline-flex items-center gap-2 text-xs font-bold font-mono text-slate-500 group-hover:text-amber-400 transition-colors">VIEW REPO <span>→</span></a></div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-heading text-3xl font-bold text-white">Publications</h2>
+            <div class="grid grid-cols-1 gap-4">
+                <a href="#" target="_blank" class="structure-card p-6 rounded-lg group hover:border-emerald-400 hover:shadow-[0_0_20px_rgba(52,211,153,0.15)] flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div><div class="flex items-center gap-3 mb-2"><span class="px-2 py-0.5 rounded bg-slate-800 text-[10px] font-mono text-emerald-400 border border-emerald-500/30">JOURNAL</span><span class="text-xs font-mono text-slate-500">JULY 2025</span></div><h3 class="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors mb-2">Recovery of metastable solid solution from a severe plastically deformed Cu alloyed FeMnCoCr High entropy alloy</h3><p class="text-sm text-slate-400 font-mono">Authors: Chinmoy Mahata, <span class="text-white border-b border-white/20">Karri Naveen Kumar</span>, et al.</p></div>
+                    <div class="flex-shrink-0"><span class="text-slate-600 group-hover:text-emerald-400 transition-colors text-xl">↗</span></div>
+                </a>
+                <a href="#" target="_blank" class="structure-card p-6 rounded-lg group hover:border-rose-400 hover:shadow-[0_0_20px_rgba(251,113,133,0.15)] flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div><div class="flex items-center gap-3 mb-2"><span class="px-2 py-0.5 rounded bg-slate-800 text-[10px] font-mono text-rose-400 border border-rose-500/30">CONFERENCE</span><span class="text-xs font-mono text-slate-500">2022</span></div><h3 class="text-lg font-bold text-white group-hover:text-rose-400 transition-colors mb-2">Triboinformatic Approaches for Composite Coatings on Titanium Alloys</h3><p class="text-sm text-slate-400 font-mono">Authors: <span class="text-white border-b border-white/20">Karri Naveen Kumar</span>, et al.</p></div>
+                    <div class="flex-shrink-0"><span class="text-slate-600 group-hover:text-rose-400 transition-colors text-xl">↗</span></div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById("mobile-menu-btn").addEventListener("click", () => { document.getElementById("mobile-menu").classList.toggle("hidden"); });
+        const canvas = document.getElementById('hex-canvas'); const ctx = canvas.getContext('2d');
+        let width, height, mouse = { x: null, y: null };
+        window.addEventListener('mousemove', e => { mouse.x = e.x; mouse.y = e.y; });
+        function resize() { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; }
+        window.addEventListener('resize', resize); resize();
+        function drawHexagon(x, y, opacity) { ctx.beginPath(); for (let i=0; i<6; i++) { const angle = 2*Math.PI/6*i; ctx[i===0?'moveTo':'lineTo'](x+30*Math.cos(angle), y+30*Math.sin(angle)); } ctx.closePath(); ctx.strokeStyle = `rgba(45, 212, 191, ${opacity})`; ctx.lineWidth = 1; ctx.stroke(); }
+        function animate() { ctx.clearRect(0,0,width,height); const horiz = Math.sqrt(3)*30; const vert = 60*0.75; for (let r=0; r<Math.ceil(height/vert)+2; r++) for (let c=0; c<Math.ceil(width/horiz)+2; c++) { let dist = mouse.x ? Math.hypot((c*horiz+(r%2?0:horiz/2)-50)-mouse.x, (r*vert-50)-mouse.y) : 9999; drawHexagon(c*horiz+(r%2?0:horiz/2)-50, r*vert-50, dist<200?0.03+(1-dist/200)*0.3:0.03); } requestAnimationFrame(animate); } animate();
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Naveen Kumar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Sora:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-dark: #0f1115; --accent: #2dd4bf; --text-primary: #f8fafc; }
+        body { font-family: 'DM Sans', sans-serif; background-color: var(--bg-dark); color: var(--text-primary); overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Sora', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        #hex-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f1115 100%); }
+        .structure-card { background: rgba(22, 27, 34, 0.6); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.3s; position: relative; overflow: hidden; cursor: pointer; display: block; }
+        .structure-card:hover { transform: translateY(-5px); }
+        .btn-cv { border: 1px solid rgba(255,255,255,0.2); padding: 0.5rem 1.5rem; border-radius: 4px; transition: all 0.3s ease; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #fff; }
+        .btn-cv:hover { border-color: var(--accent); color: var(--accent); background: rgba(45, 212, 191, 0.1); }
+    </style>
+</head>
+<body class="selection:bg-teal-500 selection:text-black">
+    <canvas id="hex-canvas"></canvas>
+    <nav class="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-3"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="2"><path d="M12 2l-9.5 5.5v11l9.5 5.5 9.5-5.5v-11z" /><circle cx="12" cy="12" r="3" /></svg><span class="font-bold text-xl tracking-tight text-white">NAVEEN<span class="font-light text-slate-400">KUMAR</span></span></div>
+            <div class="hidden md:flex gap-8 text-sm font-medium text-slate-400"><a href="../index.html" class="hover:text-teal-400">HOME</a><a href="about.html" class="hover:text-teal-400">ABOUT</a><a href="projects.html" class="hover:text-teal-400">PROJECTS</a><a href="gallery.html" class="text-teal-400">GALLERY</a><a href="contact.html" class="hover:text-teal-400">CONTACT</a></div>
+            <button id="mobile-menu-btn" class="md:hidden text-white"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+            <a href="https://drive.google.com/file/d/15r-M480O8t7j1Tcv4Nj4yOCjDcGgY1-G/view?usp=drive_link" class="hidden md:block btn-cv">DOWNLOAD CV</a>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800">
+            <a href="../index.html" class="block p-4 font-mono text-slate-400 hover:text-teal-400 border-t border-slate-800">HOME</a>
+            <a href="about.html" class="block p-4 font-mono text-slate-400 hover:text-teal-400 border-t border-slate-800">ABOUT</a>
+            <a href="projects.html" class="block p-4 font-mono text-slate-400 hover:text-teal-400 border-t border-slate-800">PROJECTS</a>
+            <a href="gallery.html" class="block p-4 font-mono text-teal-400 bg-slate-800 border-t border-slate-800">GALLERY</a>
+            <a href="contact.html" class="block p-4 font-mono text-slate-400 hover:text-teal-400 border-t border-slate-800">CONTACT</a>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 pt-32 pb-20">
+        <div class="mb-16"><h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Visual Database</h1><p class="text-slate-400 max-w-xl text-lg">Snapshots from research retreats, academic milestones, and life across borders.</p></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="structure-card p-2 rounded-lg group hover:border-teal-400 hover:shadow-[0_0_25px_rgba(45,212,191,0.15)]"><div class="relative overflow-hidden rounded-md aspect-[4/3]"><img src="../gallery/profile1.jpg" alt="Wetzler" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100"><div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6"><p class="font-mono text-teal-300 text-xs font-bold tracking-wider mb-1">/// TU DARMSTADT</p><h3 class="text-white font-bold text-lg">PHM Retreat</h3></div></div></div>
+            <div class="structure-card p-2 rounded-lg group hover:border-cyan-400 hover:shadow-[0_0_25px_rgba(34,211,238,0.15)]"><div class="relative overflow-hidden rounded-md aspect-[4/3]"><img src="../gallery/profile2.jpg" alt="Market" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100"><div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6"><p class="font-mono text-cyan-300 text-xs font-bold tracking-wider mb-1">/// GERMANY</p><h3 class="text-white font-bold text-lg">Christmas Market</h3></div></div></div>
+            <div class="structure-card p-2 rounded-lg group hover:border-fuchsia-400 hover:shadow-[0_0_25px_rgba(232,121,249,0.15)]"><div class="relative overflow-hidden rounded-md aspect-[4/3]"><img src="../gallery/profile3.jpg" alt="Event" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100"><div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6"><p class="font-mono text-fuchsia-300 text-xs font-bold tracking-wider mb-1">/// RGUKT NUZVID</p><h3 class="text-white font-bold text-lg">MME Department Event</h3></div></div></div>
+            <div class="structure-card p-2 rounded-lg group hover:border-amber-400 hover:shadow-[0_0_25px_rgba(251,191,36,0.15)]"><div class="relative overflow-hidden rounded-md aspect-[4/3]"><img src="../gallery/profile4.jpg" alt="Celebration" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100"><div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6"><p class="font-mono text-amber-300 text-xs font-bold tracking-wider mb-1">/// B.TECH</p><h3 class="text-white font-bold text-lg">Celebration</h3></div></div></div>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById("mobile-menu-btn").addEventListener("click", () => { document.getElementById("mobile-menu").classList.toggle("hidden"); });
+        const canvas = document.getElementById('hex-canvas'); const ctx = canvas.getContext('2d');
+        let width, height, mouse = { x: null, y: null };
+        window.addEventListener('mousemove', e => { mouse.x = e.x; mouse.y = e.y; });
+        function resize() { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; }
+        window.addEventListener('resize', resize); resize();
+        function drawHexagon(x, y, opacity) { ctx.beginPath(); for (let i=0; i<6; i++) { const angle = 2*Math.PI/6*i; ctx[i===0?'moveTo':'lineTo'](x+30*Math.cos(angle), y+30*Math.sin(angle)); } ctx.closePath(); ctx.strokeStyle = `rgba(45, 212, 191, ${opacity})`; ctx.lineWidth = 1; ctx.stroke(); }
+        function animate() { ctx.clearRect(0,0,width,height); const horiz = Math.sqrt(3)*30; const vert = 60*0.75; for (let r=0; r<Math.ceil(height/vert)+2; r++) for (let c=0; c<Math.ceil(width/horiz)+2; c++) { let dist = mouse.x ? Math.hypot((c*horiz+(r%2?0:horiz/2)-50)-mouse.x, (r*vert-50)-mouse.y) : 9999; drawHexagon(c*horiz+(r%2?0:horiz/2)-50, r*vert-50, dist<200?0.03+(1-dist/200)*0.3:0.03); } requestAnimationFrame(animate); } animate();
+    </script>
+</body>
+</html>

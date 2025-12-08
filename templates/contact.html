@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Naveen Kumar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Sora:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-dark: #0f1115; --accent: #2dd4bf; --text-primary: #f8fafc; }
+        body { font-family: 'DM Sans', sans-serif; background-color: var(--bg-dark); color: var(--text-primary); overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Sora', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        #hex-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f1115 100%); }
+        .structure-card { background: rgba(22, 27, 34, 0.6); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.3s; position: relative; overflow: hidden; }
+        .structure-card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 10px 30px -10px rgba(45, 212, 191, 0.15); }
+        .cyber-input { width: 100%; background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); color: #fff; padding: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; transition: all 0.3s ease; border-radius: 4px; }
+        .cyber-input:focus { outline: none; border-color: var(--accent); background: rgba(45, 212, 191, 0.05); box-shadow: 0 0 15px rgba(45, 212, 191, 0.1); }
+        .btn-glow { width: 100%; background: rgba(45, 212, 191, 0.1); border: 1px solid var(--accent); color: var(--accent); padding: 1rem; font-family: 'JetBrains Mono', monospace; font-weight: bold; transition: all 0.3s ease; cursor: pointer; border-radius: 4px; }
+        .btn-glow:hover { background: var(--accent); color: #000; box-shadow: 0 0 25px rgba(45, 212, 191, 0.4); }
+        .btn-cv { border: 1px solid rgba(255,255,255,0.2); padding: 0.5rem 1.5rem; border-radius: 4px; transition: all 0.3s ease; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #fff; }
+        .btn-cv:hover { border-color: var(--accent); color: var(--accent); background: rgba(45, 212, 191, 0.1); }
+    </style>
+</head>
+<body class="selection:bg-teal-500 selection:text-black">
+    <canvas id="hex-canvas"></canvas>
+    <div class="py-2 marquee-container font-mono font-bold tracking-widest text-xs z-50 relative hidden"><div class="marquee-content">/// ESTABLISH CONNECTION ///</div></div>
+    
+    <nav class="sticky top-0 w-full z-50 bg-slate-900/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-3"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="2"><path d="M12 2l-9.5 5.5v11l9.5 5.5 9.5-5.5v-11z" /><circle cx="12" cy="12" r="3" /></svg><span class="font-bold text-xl tracking-tight text-white">NAVEEN<span class="font-light text-slate-400">KUMAR</span></span></div>
+            <div class="hidden md:flex gap-8 text-sm font-medium text-slate-400"><a href="../index.html" class="hover:text-teal-400">HOME</a><a href="about.html" class="hover:text-teal-400">ABOUT</a><a href="projects.html" class="hover:text-teal-400">PROJECTS</a><a href="gallery.html" class="hover:text-teal-400">GALLERY</a><a href="contact.html" class="text-teal-400">CONTACT</a></div>
+            <button id="mobile-menu-btn" class="md:hidden text-white"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+            <a href="https://drive.google.com/file/d/15r-M480O8t7j1Tcv4Nj4yOCjDcGgY1-G/view?usp=drive_link" class="hidden md:block btn-cv">DOWNLOAD CV</a>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800">
+            <a href="../index.html" class="block p-4 font-mono text-slate-400 hover:text-teal-400 border-t border-slate-800">HOME</a>
+            <a href="about.html" class="block p-4 font-mono text-slate-400 hover:text-teal-400 border-t border-slate-800">ABOUT</a>
+            <a href="projects.html" class="block p-4 font-mono text-slate-400 hover:text-teal-400 border-t border-slate-800">PROJECTS</a>
+            <a href="gallery.html" class="block p-4 font-mono text-slate-400 hover:text-teal-400 border-t border-slate-800">GALLERY</a>
+            <a href="contact.html" class="block p-4 font-mono text-slate-400 hover:text-teal-400 border-t border-slate-800">CONTACT</a>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 pt-20 pb-20 flex-grow">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="structure-card p-8 rounded-lg h-full">
+                <div class="flex items-center gap-2 text-teal-400 font-mono text-xs mb-8 tracking-wider"><span class="w-2 h-2 bg-teal-400 rounded-full animate-pulse"></span> /// CONTACT_INFO</div>
+                <div class="space-y-10">
+                    <div class="group"><p class="text-xs font-mono text-slate-500 mb-2">PHONE_NUMBER</p><a href="tel:+919703393224" class="text-xl md:text-2xl font-bold text-white group-hover:text-teal-400 transition-colors">+91 9703393224</a></div>
+                    <div class="group"><p class="text-xs font-mono text-slate-500 mb-2">EMAIL_ADDRESS</p><a href="mailto:karrinaveen.mme@gmail.com" class="text-xl md:text-2xl font-bold text-white group-hover:text-teal-400 transition-colors break-words">karrinaveen.mme@gmail.com</a></div>
+                    <div class="group"><p class="text-xs font-mono text-slate-500 mb-2">CURRENT_LOCATION</p><p class="text-xl md:text-2xl font-bold text-slate-300 group-hover:text-teal-400 transition-colors">Andhra Pradesh, India</p></div>
+                </div>
+            </div>
+            <div class="structure-card p-8 rounded-lg h-full border-t-2 border-t-teal-500">
+                <div class="flex items-center gap-2 text-teal-400 font-mono text-xs mb-8 tracking-wider"><span class="w-2 h-2 bg-teal-400 rounded-full animate-pulse"></span> /// MESSAGE</div>
+                <form name="submit-to-google-sheet" id="contact-form" class="space-y-6">
+                    <div><label class="block text-xs font-mono text-slate-500 mb-2">USER_ID</label><input type="text" name="name" required class="cyber-input" placeholder="ENTER NAME..."></div>
+                    <div><label class="block text-xs font-mono text-slate-500 mb-2">COMM_CHANNEL</label><input type="email" name="email" required class="cyber-input" placeholder="ENTER EMAIL..."></div>
+                    <div><label class="block text-xs font-mono text-slate-500 mb-2">DATA_PACKET</label><textarea name="message" rows="4" required class="cyber-input" placeholder="TYPE MESSAGE..."></textarea></div>
+                    <button id="submit-btn" type="submit" class="btn-glow">[ INITIATE_SEND ]</button>
+                    <div class="text-center mt-4 min-h-[24px]"><span id="msg" class="text-teal-400 font-mono text-sm"></span></div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbweGxaZOCk5TmwLV0tjrVN65njtZZqOfwfIQOvYh1rINbIpZlWVAE0RMQAqUi_LUZf-/exec'; const form = document.forms['submit-to-google-sheet']; const msg = document.getElementById("msg"); const btn = document.getElementById("submit-btn"); const btnOriginalText = btn.innerHTML;
+        form.addEventListener('submit', e => { e.preventDefault(); btn.disabled = true; btn.innerHTML = '[ TRANSMITTING... ]'; fetch(scriptURL, { method: 'POST', body: new FormData(form)}).then(response => { msg.innerHTML = "/// MESSAGE SENT. ///"; form.reset(); btn.innerHTML = '[ SUCCESS ]'; setTimeout(() => { msg.innerHTML = ""; btn.disabled = false; btn.innerHTML = btnOriginalText; }, 4000); }).catch(error => { msg.innerHTML = "/// ERROR ///"; msg.className = "text-red-500"; btn.disabled = false; btn.innerHTML = btnOriginalText; }) });
+        document.getElementById("mobile-menu-btn").addEventListener("click", () => { document.getElementById("mobile-menu").classList.toggle("hidden"); });
+        const canvas = document.getElementById('hex-canvas'); const ctx = canvas.getContext('2d');
+        let width, height, mouse = { x: null, y: null };
+        window.addEventListener('mousemove', e => { mouse.x = e.x; mouse.y = e.y; });
+        function resize() { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; }
+        window.addEventListener('resize', resize); resize();
+        function drawHexagon(x, y, opacity) { ctx.beginPath(); for (let i=0; i<6; i++) { const angle = 2*Math.PI/6*i; ctx[i===0?'moveTo':'lineTo'](x+30*Math.cos(angle), y+30*Math.sin(angle)); } ctx.closePath(); ctx.strokeStyle = `rgba(45, 212, 191, ${opacity})`; ctx.lineWidth = 1; ctx.stroke(); }
+        function animate() { ctx.clearRect(0,0,width,height); const horiz = Math.sqrt(3)*30; const vert = 60*0.75; for (let r=0; r<Math.ceil(height/vert)+2; r++) for (let c=0; c<Math.ceil(width/horiz)+2; c++) { let dist = mouse.x ? Math.hypot((c*horiz+(r%2?0:horiz/2)-50)-mouse.x, (r*vert-50)-mouse.y) : 9999; drawHexagon(c*horiz+(r%2?0:horiz/2)-50, r*vert-50, dist<200?0.03+(1-dist/200)*0.3:0.03); } requestAnimationFrame(animate); } animate();
+    </script>
+</body>
+</html>
